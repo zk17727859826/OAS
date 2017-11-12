@@ -1,0 +1,37 @@
+﻿@model OAS.Model.Common.tbl_chexing
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm(Model == null ? "Add" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <table class="ui-table">
+        <tr>
+            <td class="label">车型：</td>
+            <td class="value">
+                @if (Model == null)
+                {
+                    <input type="text" name="chexing" class="form-textbox" />
+                }
+                else
+                {
+                    <input type="text" name="chexing" class="form-textbox" disabled value="@Model.chexing" />
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="label">描述：</td>
+            <td class="value">
+                <input type="text" name="chexingdesc" class="form-textbox" value="@(Model == null ? "" : Model.chexingdesc)" />
+            </td>
+        </tr>
+    </table>
+}

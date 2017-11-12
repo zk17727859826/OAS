@@ -1,0 +1,19 @@
+﻿@model IEnumerable<OAS.Model.Permission.sysmenu_power>
+@{
+    Layout = null;
+}
+
+<div class="queryframe noborder">
+    <table>
+        <tr>
+            <td>权限列表：</td>
+            <td>
+                <input type="text" name="powerno" id="powerno" class="textbox" />
+            </td>
+            <td>
+                <a href="#" class="easyui-linkbutton" id="btnAddPower" data-options="iconCls:'icon-add'" style="width:80px">新增</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<table id="powerinfo"></table>

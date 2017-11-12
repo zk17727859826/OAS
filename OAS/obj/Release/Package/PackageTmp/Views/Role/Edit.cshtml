@@ -1,0 +1,36 @@
+﻿@model OAS.Model.Permission.sysrole
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm(Model == null ? "Add" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <table class="ui-table">
+        <tr>
+            <td class="label">角色编号：</td>
+            <td class="value">
+                <input type="text" name="roleno" class="form-textbox" @(Model == null ? "" : "readonly") value="@(Model == null ? "" : Model.roleno)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">角色名称：</td>
+            <td class="value">
+                <input type="text" name="rolename" class="form-textbox" value="@(Model == null ? "" : Model.rolename)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">角色描述：</td>
+            <td class="value">
+                <textarea name="memo" style="width: 200px; min-height: 125px;" class="form-textbox">@(Model == null ? "" : Model.memo)</textarea>
+            </td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "随机试卷规则";
+}
+
+<div data-options="region:'north',border:false" style="height:35px;">
+    <div class="toolbar">@Html.Raw(ViewBag.ToolBar)</div>
+</div>
+<div data-options="region:'center',border:false">
+    <table id="list" class="scroll" cellpadding="0" cellspacing="0"></table>
+</div>
+<div id="editframe"></div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Content/bank/paperrule.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            initQuery();
+            initRefresh();
+            initShowAdd();
+            initShowUpdate();
+            initDelete();
+        });
+    </script>
+}

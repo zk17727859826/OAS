@@ -1,0 +1,74 @@
+﻿@model IEnumerable<OAS.Model.Permission.sysmenu>
+@{
+    ViewBag.Title = "首页";
+    @section styles{
+        <style>
+            iframe {
+                margin-top: 3px !important;
+                margin-left: 3px !important;
+            }
+        </style>
+    }
+}
+<div data-options="region:'north'" style="height:60px;padding:10px;">north region</div>
+<div data-options="region:'west',split:true,title:'导航菜单'" style="width:210px;">
+    <div class="easyui-accordion" data-options="fit:true,border:false">
+        @foreach (var menu in Model)
+        {
+            <div title="@menu.menuname" data-options="iconCls:'@menu.menuclass'" style="overflow:auto;">
+                <ul class="nav-slide">
+                    @foreach (var sub in menu.children)
+                    {
+                        <li class="accordion-url list-item" data-url="@sub.menuurl"><a><span class="ui-icon ui-icon-@sub.menuclass"></span>@sub.menuname</a></li>
+                    }
+                </ul>
+            </div>
+        }
+        @*<div title="权限管理" data-options="iconCls:'icon-ok'" style="overflow:auto;">
+            <ul class="nav-slide">
+                <li class="accordion-url list-item" data-url="@Url.Action("index", "user")"><a><span class="ui-icon ui-icon-user"></span>用户管理</a></li>
+                <li class="accordion-url list-item" data-url="@Url.Action("index", "role")"><a><span class="ui-icon ui-icon-group"></span>角色管理</a></li>
+                <li class="accordion-url list-item" data-url="@Url.Action("index", "module")"><a><span class="ui-icon ui-icon-application-double"></span>模块管理</a></li>
+                <li class="accordion-url list-item" data-url="@Url.Action("index", "userpower")"><a><span class="ui-icon ui-icon-key"></span>用户权限管理</a></li>
+                <li class="accordion-url list-item" data-url="@Url.Action("index", "rolepower")"><a><span class="ui-icon ui-icon-group-key"></span>角色权限管理</a></li>
+            </ul>
+        </div>*@
+    </div>
+</div>
+<div data-options="region:'south'" style="height:50px;background:#A9FACD;padding:10px;">
+
+</div>
+<div data-options="region:'center',border:false">
+    <div id="tabs" class="easyui-tabs" fit="true">
+        <div title="首页"><iframe scrolling="auto" frameborder="0" width="99.5%" height="98.5%"></iframe></div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(".easyui-accordion li.accordion-url").click(function () {
+                var tabTitle = $(this).text();
+                var url = $(this).attr("data-url");
+                addTab(tabTitle, url);
+            });
+        });
+
+        function addTab(subtitle, url) {
+            if (!$('#tabs').tabs('exists', subtitle)) {
+                $('#tabs').tabs('add', {
+                    title: subtitle,
+                    content: createFrame(url),
+                    closable: true,
+                    fit: true
+                });
+            } else {
+                $('#tabs').tabs('select', subtitle);
+            }
+        }
+
+        function createFrame(url) {
+            var s = '<iframe scrolling="auto" frameborder="0" src="' + url + '" style="width:99.5%;height:98.5%;"></iframe>';
+            return s;
+        }
+    </script>
+}

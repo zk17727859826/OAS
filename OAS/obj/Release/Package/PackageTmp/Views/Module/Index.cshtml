@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "模块管理";
+}
+<div data-options="region:'north',border:false" style="height:37px;">
+    <div class="toolbar">@Html.Raw(ViewBag.ToolBar)</div>
+</div>
+<div data-options="region:'center',border:false">
+    <table id="list" class="scroll" cellpadding="0" cellspacing="0"></table>
+</div>
+    <div id="editframe"></div>
+    <div id="powerframe">
+        <div id="powerframeinfo" style="display:none; padding:3px;">
+            <div class="queryframe">
+                <table>
+                    <tr>
+                        <td>权限列表：</td>
+                        <td>
+                            <select id="powerno"></select>
+                        </td>
+                        <td>
+                            <a href="#" class="easyui-linkbutton" id="btnAddPower" data-options="iconCls:'icon-add'" style="width:80px">新增</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <table id="powerinfo"></table>
+        </div>
+    </div>
+    <div id="objectframe">
+        <div id="objectframeinfo" style="display:none; padding:3px">
+            <div class="queryframe">
+                <table>
+                    <tr>
+                        <td>对象列表：</td>
+                        <td>
+                            <input type="text" id="objectno" class="ui-box" />
+                        </td>
+                        <td>
+                            <a href="#" class="easyui-linkbutton" id="btnAddObject" data-options="iconCls:'icon-add'" style="width:80px">新增</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <table id="objectinfo"></table>
+        </div>
+    </div>
+    @section scripts{
+        <script type="text/javascript" src="@Url.Content("~/Content/permission/menu.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                initQuery();
+                initRefresh();
+                initShowAdd();
+                initShowUpdate();
+                initDelete();
+                initShowPower();
+                initShowObject();
+                initPower("#powerno");
+            });
+        </script>
+    }

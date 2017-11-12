@@ -1,0 +1,5 @@
+E:\系统源码\VS2013\OAS\DBFactoryEntity\bin\Debug\DBFactoryEntity.dll
+E:\系统源码\VS2013\OAS\DBFactoryEntity\bin\Debug\DBFactoryEntity.pdb
+E:\系统源码\VS2013\OAS\DBFactoryEntity\obj\Debug\DBFactoryEntity.dll
+E:\系统源码\VS2013\OAS\DBFactoryEntity\obj\Debug\DBFactoryEntity.pdb
+E:\系统源码\VS2013\OAS\DBFactoryEntity\obj\Debug\DBFactoryEntity.csprojResolveAssemblyReference.cache

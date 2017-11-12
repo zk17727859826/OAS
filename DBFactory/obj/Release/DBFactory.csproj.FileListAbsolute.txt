@@ -1,0 +1,7 @@
+E:\系统源码\VS2013\OAS\DBFactory\bin\Release\DBFactory.dll
+E:\系统源码\VS2013\OAS\DBFactory\bin\Release\DBFactory.pdb
+E:\系统源码\VS2013\OAS\DBFactory\bin\Release\DBFactoryEntity.dll
+E:\系统源码\VS2013\OAS\DBFactory\bin\Release\DBFactoryEntity.pdb
+E:\系统源码\VS2013\OAS\DBFactory\obj\Release\DBFactory.csprojResolveAssemblyReference.cache
+E:\系统源码\VS2013\OAS\DBFactory\obj\Release\DBFactory.dll
+E:\系统源码\VS2013\OAS\DBFactory\obj\Release\DBFactory.pdb

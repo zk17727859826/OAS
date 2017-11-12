@@ -1,0 +1,55 @@
+﻿@model OAS.Model.Bank.tbl_paper_rule
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm(Model == null ? "Add" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <input type="hidden" name="pkid" value="@(Model==null?"":Model.pkid)" />
+    <table class="ui-table">
+        <tr style="display:none">
+            <td class="label">车型：</td>
+            <td class="value">
+               @Html.Action("Select", "CheXing", new { name = "chexing", id = "chexing", classname = "form-textbox easyui-combobox", value = Model == null ? "" : Model.chexing })
+            </td>
+        </tr>
+        <tr>
+            <td class="label">科目：</td>
+            <td class="value">
+                <select name="kemu" class="form-textbox easyui-combobox" data-options="panelHeight:'auto'">
+                    <option value="">---</option>
+                    <option value="KM1" @(Model == null ? "" : (Model.kemu == "KM1" ? "selected" : ""))>科目一</option>
+                    <option value="KM4" @(Model == null ? "" : (Model.kemu == "KM4" ? "selected" : ""))>科目四</option>
+                    <option value="KMA" @(Model == null ? "" : (Model.kemu == "KMA" ? "selected" : ""))>客车</option>
+                    <option value="KMB" @(Model == null ? "" : (Model.kemu == "KMB" ? "selected" : ""))>货车</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">单选题比例：</td>
+            <td class="value">
+                <input type="text" name="single" class="form-textbox" value="@(Model == null ? "" : Model.single.Value.ToString())" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">单选题比例：</td>
+            <td class="value">
+                <input type="text" name="judge" class="form-textbox" value="@(Model == null ? "" : Model.judge.Value.ToString())" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">单选题比例：</td>
+            <td class="value">
+                <input type="text" name="multi" class="form-textbox" value="@(Model == null ? "" : Model.multi.Value.ToString())" />
+            </td>
+        </tr>
+    </table>
+}

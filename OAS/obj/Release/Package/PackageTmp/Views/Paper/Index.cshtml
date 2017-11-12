@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "试卷管理";
+    @section styles{
+        <link href="@Url.Content("~/Content/bankinfo.css")" rel="stylesheet" />
+    }
+}
+
+<div data-options="region:'north',border:false,collapsible:false,height:95">
+    <div class="queryframe">
+        <table>
+            <tr>
+                <td>试卷名称：</td>
+                <td>
+                    <input type="text" name="papername" id="papername" class="textbox ui-box" />
+                </td>
+                <td>
+                    <a href="#" class="easyui-linkbutton" id="btnQuery" data-options="iconCls:'icon-search'" style="width:80px">Search</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="toolbar">@Html.Raw(ViewBag.ToolBar)</div>
+</div>
+<div data-options="region:'west',title:'试卷列表',split:true,border:true,width:400">
+    <table id="list" class="scroll" cellpadding="0" cellspacing="0"></table>
+</div>
+<div data-options="region:'center',border:false">
+    <div id="bankinfo" class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'center',split:true,title:'题目列表',border:true,
+             tools: [{
+                       iconCls:'icon-save',
+                       handler:function(){savePaperQuestions();}
+                     }] ">
+            <table id="banklist" cellpadding="0" cellspacing="0"></table>
+        </div>
+        <div data-options="region:'east',collapsible:false,split:true,title:'题目信息'" style="width:500px; padding:5px;">
+            <div style="margin-top:3px; line-height:20px; min-height:40px; margin-bottom:3px; padding-left:3px;"><span id="bankid">题号</span><span id="bankqtype">题型</span><span id="banktitle">标题</span></div>
+            <div id="bankoptions" style="min-height:150px;"></div>
+            <div id="bankanswer" class="sectionitem"><span class="secflag">答案</span></div>
+            <div data-options="region:'north',split:true,collapsible:false,title:'题目图片'" style="height:200px; width:200px;">
+                <img id="bankpicpath" style="display:none; max-width:100%;" />
+            </div>
+        </div>
+    </div>
+</div>
+<div id="editframe"></div>
+<table id="list" class="scroll" cellpadding="0" cellspacing="0"></table>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Content/bank/paper.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            initQuery();
+            initRefresh();
+            initShowAdd();
+            initShowUpdate();
+            initDelete();
+            queryAllBank();
+        });
+    </script>
+}

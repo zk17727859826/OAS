@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "角色权限";
+    @section styles{
+        <style>
+            .objectitem {
+                width: 70px;
+                border: dashed 1px #aaa;
+                height: 25px;
+                line-height: 25px;
+                float: left;
+                margin: 3px;
+                position: relative;
+            }
+
+            .objectitem label{
+                position: relative;
+            }
+
+            .objectitem label input{
+                position: relative;
+                top:2px;
+            }
+        </style>
+    }
+}
+<div data-options="region:'west',split:true,title:'角色信息',collapsible:false" style="width:300px;">
+    <table id="tblrole"></table>
+</div>
+<div data-options="region:'center',border:false">
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'west',split:true,collapsible:false,title:'模块信息',tools: [{
+                      iconCls:'icon-save',
+                      handler:function(){
+                        saveRoleModule();
+                      }
+                    }]" style="width:300px; padding:3px;">
+            <ul id="treeModule"></ul>
+        </div>
+        <div data-options="region:'center',border:false">
+            <div class="easyui-layout" data-options="fit:true">
+                <div data-options="region:'north',split:true,collapsible:false,title:'动作信息'" style="height:250px;">
+                    <table id="tblModulePower"></table>
+                </div>
+                <div data-options="region:'center',collapsible:false,title:'对象信息'">
+                    <div id="flRoleObjects"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="@Url.Content("~/Content/permission/rolepower.js")"></script>
+    <script>
+        $(document).ready(function () {
+            queryRole();
+        });
+    </script>
+}

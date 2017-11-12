@@ -1,0 +1,111 @@
+﻿@model OAS.Model.Bank.tbl_bank
+@{
+    Layout = null;
+    @section styls{
+
+    }
+}
+
+@using (Ajax.BeginForm(Model == null ? "Add" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <table class="ui-table" style="width: 90%;">
+        @if (Model != null)
+        {
+            <tr>
+                <td class="label">编号：</td>
+                <td class="r-value">
+                    <input type="text" name="id" class="form-textbox" @(Model == null ? "style='display:none;'" : "readonly") value="@(Model == null ? "" : Model.id.ToString())" />
+                </td>
+            </tr>
+        }
+        <tr>
+            <td class="label">标题：</td>
+            <td class="r-value">
+                <input type="text" name="title" class="form-textbox" value="@(Model == null ? "" : Model.title)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">题型：</td>
+            <td class="r-value">
+                <select name="qtype" class="easyui-combobox" id="eqtype" data-options="panelHeight:'auto',onSelect:function(record){
+                            chooseAnswerOptions(record.value);
+                        }">
+                    <option value="">---</option>
+                    <option value="单选题" @(Model == null ? "" : (Model.qtype == "单选题" ? "selected" : ""))>单选题</option>
+                    <option value="多选题" @(Model == null ? "" : (Model.qtype == "多选题" ? "selected" : ""))>多选题</option>
+                    <option value="判断题" @(Model == null ? "" : (Model.qtype == "判断题" ? "selected" : ""))>判断题</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">章节：</td>
+            <td class="r-value">
+                @Html.DropDownList("section", ViewData["sectionlist"] as SelectList, "---", new { @class = "easyui-combobox", data_options = "panelHeight:'auto'" })
+            </td>
+        </tr>
+        <tr>
+            <td class="label">图片路径：</td>
+            <td class="r-value">
+                <input type="text" name="picpath" class="form-textbox imagepath" value="@(Model == null ? "" : Model.picpath)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">动画路径：</td>
+            <td class="r-value">
+                <input type="text" name="animepath" class="form-textbox imagepath" value="@(Model == null ? "" : Model.animepath)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">供选项目：</td>
+            <td class="r-value">
+                <textarea name="options" class="form-textbox">@(Model == null ? "" : Model.options)</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">适用车型：</td>
+            <td class="r-value">
+                <div>
+                    <label><input type="checkbox" name="belongtypeoption" value="A" @(Model == null ? "" : ((Model.belongtype != null && Model.belongtype.Contains("A")) ? "checked" : "")) />客车</label>
+                    <label><input type="checkbox" name="belongtypeoption" value="B" @(Model == null ? "" : ((Model.belongtype != null && Model.belongtype.Contains("B")) ? "checked" : "")) />货车</label>
+                    <label><input type="checkbox" name="belongtypeoption" value="C" @(Model == null ? "" : ((Model.belongtype != null && Model.belongtype.Contains("C")) ? "checked" : "")) />小车</label>
+                    <label><input type="checkbox" name="belongtypeoption" value="D" @(Model == null ? "" : ((Model.belongtype != null && Model.belongtype.Contains("D")) ? "checked" : "")) />科目4</label>
+                </div>
+                <input type="hidden" name="belongtype" id="belongtype" value="@(Model == null ? "" : Model.belongtype)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">答案：</td>
+            <td class="r-value">
+                <div id="answeroptions">
+                    <label style="@(Model == null ? "display:none" : (Model.qtype != "判断题" ? "" : "display:none"))"><input type="checkbox" name="answeroption" class="answeroption single multi" value="A" @(Model == null ? "" : (Model.answer.Contains("A") ? "checked" : "")) />A</label>
+                    <label style="@(Model == null ? "display:none" : (Model.qtype != "判断题" ? "" : "display:none"))"><input type="checkbox" name="answeroption" class="answeroption single multi" value="B" @(Model == null ? "" : (Model.answer.Contains("B") ? "checked" : "")) />B</label>
+                    <label style="@(Model == null ? "display:none" : (Model.qtype != "判断题" ? "" : "display:none"))"><input type="checkbox" name="answeroption" class="answeroption single multi" value="C" @(Model == null ? "" : (Model.answer.Contains("C") ? "checked" : "")) />C</label>
+                    <label style="@(Model == null ? "display:none" : (Model.qtype != "判断题" ? "" : "display:none"))"><input type="checkbox" name="answeroption" class="answeroption single multi" value="D" @(Model == null ? "" : (Model.answer.Contains("D") ? "checked" : "")) />D</label>
+                    <label style="@(Model == null ? "display:none" : (Model.qtype == "判断题" ? "" : "display:none"))"><input type="checkbox" name="answeroption" class="answeroption judge" value="对" @(Model == null ? "" : (Model.answer.Contains("对") ? "checked" : "")) />对</label>
+                    <label style="@(Model == null ? "display:none" : (Model.qtype == "判断题" ? "" : "display:none"))"><input type="checkbox" name="answeroption" class="answeroption judge" value="错" @(Model == null ? "" : (Model.answer.Contains("错") ? "checked" : "")) />错</label>
+                </div>
+                <input type="hidden" name="answer" id="answer" value="@(Model == null ? "" : Model.answer)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">答案解释：</td>
+            <td class="r-value">
+                <textarea name="answerdesc" class="form-textbox">@(Model == null ? "" : Model.answerdesc)</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">解释图片：</td>
+            <td class="r-value">
+                <input type="text" name="answerpicpath" class="form-textbox imagepath" value="@(Model == null ? "" : Model.answerpicpath)" />
+            </td>
+        </tr>
+    </table>
+}

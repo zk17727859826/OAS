@@ -1,0 +1,61 @@
+﻿@model OAS.Model.Jiax.tbl_jiax
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm(Model == null ? "Add" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <table class="ui-table">
+        <tr>
+            <td class="label">驾校ID：</td>
+            <td class="value">
+                <input type="text" name="jiaxid" class="form-textbox" @(Model == null ? "" : "readonly") value="@(Model == null ? "" : Model.jiaxid)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">驾校名称：</td>
+            <td class="value">
+                <input type="text" name="jiaxname" class="form-textbox" value="@(Model == null ? "" : Model.jiaxname)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">区域：</td>
+            <td class="value">
+                @Html.Action("Select", "Area", new { name = "areano", id = "areano", classname = "form-textbox easyui-combobox", value = Model == null ? "" : Model.areano })
+                <input type="hidden" name="areaname" id="areaname" value="@(Model == null ? "" : Model.areaname)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">驾校联系人：</td>
+            <td class="value">
+                <input type="text" name="jiaxcontacter" class="form-textbox" value="@(Model == null ? "" : Model.jiaxcontacter)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">固定电话：</td>
+            <td class="value">
+                <input type="text" name="jiaxtel" class="form-textbox" value="@(Model == null ? "" : Model.jiaxtel)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">手机：</td>
+            <td class="value">
+                <input type="text" name="jiaxmobile" class="form-textbox" value="@(Model == null ? "" : Model.jiaxmobile)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">联系地址：</td>
+            <td class="value">
+                <input type="text" name="jiaxaddress" class="form-textbox" value="@(Model == null ? "" : Model.jiaxaddress)" />
+            </td>
+        </tr>
+    </table>
+}

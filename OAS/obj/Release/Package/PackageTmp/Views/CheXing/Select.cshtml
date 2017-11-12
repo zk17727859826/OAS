@@ -1,0 +1,11 @@
+﻿@model IEnumerable<OAS.Model.Common.tbl_chexing>
+<select id="@ViewBag.ID" name="@ViewBag.Name" class="@ViewBag.ClassName" data-options="panelHeight:'auto'">
+    <option value="">---</option>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <option value="@item.chexing" @(item.chexing == ViewBag.Value ? "selected" : "")>@item.chexing</option>
+        }
+    }
+</select>

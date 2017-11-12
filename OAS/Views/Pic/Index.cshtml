@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "图片管理";
+    @section styles{
+    <link href="@Url.Content("~/Content/webuploader-0.1.5/webuploader.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/images.css")" rel="stylesheet" />       
+    }
+}
+<div data-options="region:'north',border:false,collapsible:false,height:35">
+    <div class="toolbar">@Html.Raw(ViewBag.ToolBar)</div>
+</div>
+<div data-options="region:'west',split:true,width:300">
+    <div id="treeFolder"></div>
+</div>
+<div data-options="region:'center'">
+    <ul id="imagefiles">
+        <li class="picadd" style='font-size:120px;'>
+            <div id="addfile">+</div>
+        </li>
+    </ul>
+</div>
+<div id="addFrame">
+    <table class="ui-table">
+        <tr class="isadd">
+            <td class="label">级别：</td>
+            <td class="value">
+                <lable><input type="radio" name="level" value="1" />本级</lable>
+                <lable><input type="radio" name="level" value="2" />子级</lable>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">类型：</td>
+            <td class="value">
+                <input type="text" name="typename" id="typename" class="form-textbox" />
+            </td>
+        </tr>
+    </table>
+</div>
+@section scripts{
+    <script src="@Url.Content("~/Content/webuploader-0.1.5/webuploader.js")"></script>
+    <script src="@Url.Content("~/Content/bank/images.js")"></script>
+    <script>
+        initQueryFolder();
+        initUploadFile();
+        initShowAddFolder();
+        initShowEditFolder();
+        initDeleteFolder();
+        initRefresh();
+        initDeleteFile();
+    </script>
+}

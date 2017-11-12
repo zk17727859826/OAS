@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{711BCEDA-80D1-4283-B6FE-684ED7F0F171}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OAS.Bll</RootNamespace>
+    <AssemblyName>OAS.Bll</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bank\BankBll.cs" />
+    <Compile Include="Bank\ErrorBank.cs" />
+    <Compile Include="Bank\PaperBll.cs" />
+    <Compile Include="Bank\PaperRuleBll.cs" />
+    <Compile Include="Bank\SectionBll.cs" />
+    <Compile Include="Common\AreaInfoBll.cs" />
+    <Compile Include="Common\SysSerialsetBll.cs" />
+    <Compile Include="Common\CheXingBll.cs" />
+    <Compile Include="Jiax\JiaoLianBll.cs" />
+    <Compile Include="Jiax\JiaxBll.cs" />
+    <Compile Include="Jiax\XueyuanBll.cs" />
+    <Compile Include="Permission\MenuBll.cs" />
+    <Compile Include="Permission\MenuObjectBll.cs" />
+    <Compile Include="Permission\MenuPowerBll.cs" />
+    <Compile Include="Permission\PowerBll.cs" />
+    <Compile Include="Permission\RoleBll.cs" />
+    <Compile Include="Permission\RoleMenuBll.cs" />
+    <Compile Include="Permission\RoleMenuPowerBll.cs" />
+    <Compile Include="Permission\RoleMenuPowerObjectBll.cs" />
+    <Compile Include="Permission\UserBll.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Study\TblTestRecordsBll.cs" />
+    <Compile Include="Study\TblTestRecordsDetailsBll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBFactoryEntity\DBFactoryEntity.csproj">
+      <Project>{0422cb72-88b2-46f7-a786-c93979e75d05}</Project>
+      <Name>DBFactoryEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OAS.Dal\OAS.Dal.csproj">
+      <Project>{cd17392c-d43e-4736-896c-da32d344a6fa}</Project>
+      <Name>OAS.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OAS.Model\OAS.Model.csproj">
+      <Project>{eff08c15-81f6-4f81-bc61-85f30a19237e}</Project>
+      <Name>OAS.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

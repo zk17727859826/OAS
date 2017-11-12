@@ -1,0 +1,234 @@
+﻿body, ul, li {
+    font-size: 1em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+    padding: 0px;
+    margin: 0px;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.ui-icon {
+    display: block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+.ui-icon-user {
+    background-image: url(themes/images/png/user.png);
+}
+
+.ui-icon-jiaolian {
+    background-image: url(themes/images/png/user_suit.png);
+}
+
+.ui-icon-xueyuan {
+    background-image: url(themes/images/png/user_green.png);
+}
+
+.ui-icon-key {
+    background-image: url(themes/images/png/key.png);
+}
+
+.ui-icon-group {
+    background-image: url(themes/images/png/group.png);
+}
+
+.ui-icon-group-key {
+    background-image: url(themes/images/png/group_key.png);
+}
+
+.ui-icon-application-double {
+    background-image: url(themes/images/png/application_double.png);
+}
+
+.ui-icon-bank {
+    background-image: url(themes/images/png/book.png);
+}
+
+.ui-icon-section {
+    background-image: url(themes/images/png/text_list_bullets.png);
+}
+
+.ui-icon-page {
+    background-image: url(themes/images/png/page.png);
+}
+
+.ui-icon-picture {
+    background-image: url(themes/images/png/picture.png);
+}
+
+.ui-icon-area {
+    background-image: url(themes/images/png/world.png);
+}
+
+.ui-icon-jiax {
+    background-image: url(themes/images/png/brick.png);
+}
+
+.ui-icon-car {
+    background-image: url(themes/images/png/lorry.png);
+}
+
+.ui-icon-list {
+    background-image: url(themes/images/png/script_edit.png);
+}
+
+.ui-icon-page-witch {
+    background-image: url(themes/images/png/page_white_swoosh.png);
+}
+
+.nav-slide li {
+    height: 30px;
+    line-height: 30px;
+    list-style: none;
+    padding: 0px;
+    margin: 10px;
+    border: solid 1px transparent;
+    cursor: pointer;
+    position: relative;
+    padding-left: 36px;
+}
+
+    .nav-slide li:hover,
+    .nav-slide li.active {
+        border: solid 1px #95B8E7;
+        background-color: #FBEC88;
+    }
+
+    .nav-slide li.active {
+        background-color: #FBEC88;
+    }
+
+    .nav-slide li .ui-icon {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 7px;
+        left: 10px;
+    }
+
+.ui-icon-default {
+    width: 25px;
+    height: 25px;
+}
+
+.easyui-accordion .panel:last-child .panel-header,
+.easyui-accordion .panel:last-child .panel-body {
+    border-bottom: none;
+}
+
+.easyui-accordion .panel:last-child .panel-body {
+    border-top-width: 1px;
+}
+
+.toolbar {
+    height: 26px;
+    border: solid 1px #95B8E7;
+    margin-bottom: 2px;
+    padding: 2px;
+}
+
+.queryframe {
+    height: 50px;
+    border: solid 1px #95B8E7;
+    margin-bottom: 2px;
+    padding: 2px;
+    font-size: 13px;
+}
+
+    .queryframe table {
+        height: 100%;
+    }
+
+.table-wrap {
+}
+
+.ui-box {
+    height: 20px;
+}
+
+.ui-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .ui-table td {
+        height: 30px !important;
+    }
+
+        .ui-table td.r-value .form-textbox {
+            width: 90%;
+        }
+
+    .ui-table .lable {
+        width: 120px;
+        text-align: left;
+    }
+
+.ui-table-border td,
+.ui-table-border th {
+    border: solid 1px #b9b4b4;
+}
+
+.form-textbox {
+    width: 150px;
+}
+
+.noborder {
+    border: none !important;
+}

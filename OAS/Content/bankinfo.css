@@ -1,0 +1,24 @@
+﻿#bankid {
+    border: solid 1px #0094ff;
+    color: #0094ff;
+    margin-right: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#bankqtype {
+    border: solid 1px red;
+    color: red;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-right: 3px;
+}
+
+.sectionitem {
+    margin: 5px;
+}
+
+.secflag {
+    border: solid 1px #b200ff;
+    color: #b200ff;
+}

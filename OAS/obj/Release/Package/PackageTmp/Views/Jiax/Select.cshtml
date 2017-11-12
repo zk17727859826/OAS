@@ -1,0 +1,11 @@
+﻿@model IEnumerable<OAS.Model.Jiax.tbl_jiax>
+<select id="@ViewBag.ID" name="@ViewBag.Name" class="@ViewBag.ClassName" data-options="panelHeight:'auto'">
+    <option value="">---</option>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <option value="@item.jiaxid" @(item.jiaxid == ViewBag.Value ? "selected" : "")>@item.jiaxname</option>
+        }
+    }
+</select>

@@ -1,0 +1,104 @@
+﻿#imagefiles {
+    padding: 0px;
+    margin: 0px;
+}
+#imagefiles .picitem, #imagefiles .picadd {
+    border: solid 1px #aaaaaa;
+    height: 200px;
+    width: 150px;
+    border-radius: 5px;
+    float: left;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+}
+
+#imagefiles .picitem .uploadprogress,#imagefiles .picitem .state{
+    position: absolute;
+    border: solid 1px #aaa;
+    border-radius: 3px;
+    left: 2%;
+    bottom: 3px;
+    height: 20px;
+    width: 95%;
+    opacity: 0.5;
+    overflow: hidden;
+}
+
+p.state{
+    margin:0px;
+    opacity: 1;
+}
+
+span.closeflag {
+    color: red;
+    border: solid 1px red;
+    border-radius: 8px;
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    text-align: center;
+    line-height: 12px;
+    color: #fff;
+    right: -8px;
+    top: -8px;
+    font-size: 20px;
+    background-color: red;
+    cursor: pointer;
+}
+
+span.closeflag:hover {
+    font-weight: 700;
+}
+
+#imagefiles .picitem .uploadprogress .progressline{
+    height:20px;
+    width:0px;
+    background-color: #0026ff;
+}
+
+#imagefiles .picitem .state {
+    line-height: 20px;
+    border: none;
+    text-align: center;
+}
+
+#imagefiles .selected{
+    border:solid 1px #0026ff !important;
+    background-color: #b9d9f1;
+}
+
+#imagefiles .picitem .newflag {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
+}
+
+#imagefiles .webuploader-pick{
+    width: 120px;
+    height: 180px;
+}
+
+#imagefiles .picadd {
+    border: solid 0px #aaaaaa;
+}
+
+#imagefiles .picitem img {
+    width: 95%;
+    margin-top: 5px;
+    max-height: 160px
+}
+#imagefiles .picitem div {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+    background-color: #f0f0f0;
+    border-top: solid 1px #aaaaaa;
+}

@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "题库说明";
+    @section styles{
+        <link href="@Url.Content("~/Content/images.css")" rel="stylesheet" />
+        <link href="@Url.Content("~/Content/bankinfo.css")" rel="stylesheet" />
+    }
+}
+<div data-options="region:'north',border:false,collapsible:false,height:95">
+    <div class="queryframe">
+        <table>
+            <tr>
+                <td>标题：</td>
+                <td>
+                    <input type="text" name="title" id="title" class="textbox ui-box" />
+                </td>
+                <td>题型：</td>
+                <td>
+                    <select name="qtype" id="qtype" class="easyui-combobox" data-options="panelHeight:'auto'">
+                        <option value="">---</option>
+                        <option value="单选题">单选题</option>
+                        <option value="判断题">判断题</option>
+                        <option value="多选题">多选题</option>
+                    </select>
+                </td>
+                <td>包含图片：</td>
+                <td>
+                    <select name="ynpic" id="ynpic" class="easyui-combobox" data-options="panelHeight:'auto'">
+                        <option value="">---</option>
+                        <option value="Y">是</option>
+                        <option value="N">否</option>
+                    </select>
+                </td>
+                <td>包含动画：</td>
+                <td>
+                    <select name="ynanimal" id="ynanimal" class="easyui-combobox" data-options="panelHeight:'auto'">
+                        <option value="">---</option>
+                        <option value="Y">是</option>
+                        <option value="N">否</option>
+                    </select>
+                </td>
+                <td>
+                    <a href="#" class="easyui-linkbutton" id="btnQuery" data-options="iconCls:'icon-search'" style="width:80px">Search</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="toolbar">@Html.Raw(ViewBag.ToolBar)</div>
+</div>
+<div data-options="region:'west',split:true,border:false,width:500">
+    <table id="list" class="scroll" cellpadding="0" cellspacing="0"></table>
+</div>
+<div data-options="region:'center',border:false">
+    <div id="bankinfo" class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'center',collapsible:false,title:'题目信息'" style="padding:3px;">
+            <div style="margin-top:3px; line-height:20px; min-height:40px; margin-bottom:3px; padding-left:3px;"><span id="bankid">题号</span><span id="bankqtype">题型</span><span id="banktitle">标题</span></div>
+            <div id="bankoptions" style="min-height:150px;"></div>
+            <div id="sectioninfo" class="sectionitem"><span class="secflag">章节</span></div>
+            <div id="bankanswer" class="sectionitem"><span class="secflag">答案</span></div>
+            <div id="bankanswerdesc" class="sectionitem"><span class="secflag">解释</span></div>
+        </div>
+        <div data-options="region:'east',split:true,border:false" style="width:200px;">
+            <div class="easyui-layout" data-options="fit:true">
+                <div data-options="region:'north',split:true,collapsible:false,title:'题目图片'" style="height:200px; width:200px;">
+                    <img id="bankpicpath" style="display:none; max-width:100%;" />
+                </div>
+                <div data-options="region:'center',collapsible:false,title:'答案图片'">
+                    <img id="bankanswerpath" style="display:none; max-width:100%;" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="editframe"></div>
+<div id="imageframe" style="padding:3px;">
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'west',title:'图片夹',split:false,border:true,width:200">
+            <ul id="imgfolder"></ul>
+        </div>
+        <div data-options="region:'center',title:'图片列表',border:true">
+            <div id="imagefiles"></div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Content/bank/bank.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            initQuery();
+            initRefresh();
+            initShowAdd();
+            initShowUpdate();
+            initDelete();
+            initAnswerSelect();
+            initImageSelected();
+            initPicItemSelected();
+            initChexingSelect();
+            initShowOther();
+        });
+    </script>
+}

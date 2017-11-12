@@ -1,0 +1,14 @@
+E:\系统源码\VS2013\OAS\OAS.Dal\bin\Debug\OAS.Dal.dll
+E:\系统源码\VS2013\OAS\OAS.Dal\bin\Debug\OAS.Dal.pdb
+E:\系统源码\VS2013\OAS\OAS.Dal\obj\Debug\OAS.Dal.dll
+E:\系统源码\VS2013\OAS\OAS.Dal\obj\Debug\OAS.Dal.pdb
+E:\系统源码\VS2013\OAS\OAS.Dal\obj\Debug\OAS.Dal.csprojResolveAssemblyReference.cache
+E:\系统源码\VS2013\OAS\OAS.Dal\bin\Debug\DBFactory.dll
+E:\系统源码\VS2013\OAS\OAS.Dal\bin\Debug\DBFactoryEntity.dll
+E:\系统源码\VS2013\OAS\OAS.Dal\bin\Debug\OAS.Model.dll
+E:\系统源码\VS2013\OAS\OAS.Dal\bin\Debug\tg.Helper.dll
+E:\系统源码\VS2013\OAS\OAS.Dal\bin\Debug\ChnCharInfo.dll
+E:\系统源码\VS2013\OAS\OAS.Dal\bin\Debug\DBFactoryEntity.pdb
+E:\系统源码\VS2013\OAS\OAS.Dal\bin\Debug\DBFactory.pdb
+E:\系统源码\VS2013\OAS\OAS.Dal\bin\Debug\OAS.Model.pdb
+E:\系统源码\VS2013\OAS\OAS.Dal\bin\Debug\tg.Helper.pdb

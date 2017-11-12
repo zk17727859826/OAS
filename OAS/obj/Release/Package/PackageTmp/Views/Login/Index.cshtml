@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "登陆";
+    @section styles{
+        <link href="@Url.Content("~/content/login.css")" rel="stylesheet" />
+    }
+}
+
+<div class="login-wrap">
+    <div class="login-top">
+    </div>
+    <div class="login-floatwrap">
+        <div></div>
+        <div></div>
+        <div class="user-frame">
+            <div class="login-flag">
+                用户登陆
+            </div>
+            <div class="login-control">
+                <label>用户名称：</label>
+                <div>
+                    <input type="text" name="userno" id="userno" />
+                </div>
+            </div>
+            <div class="login-control">
+                <label>用户密码：</label>
+                <div>
+                    <input type="password" name="userpwd" id="userpwd" />
+                </div>
+            </div>
+            <div class="button-wrap">
+                <a id="btnLogin" class="user-btn"><span class="text">登 陆</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="@Url.Content("~/Scripts/login.js")"></script>
+}

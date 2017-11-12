@@ -1,0 +1,30 @@
+﻿@model OAS.Model.Bank.tbl_section
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm(Model == null ? "Add" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <table class="ui-table">
+        <tr>
+            <td class="label">章节编号：</td>
+            <td class="value">
+                <input type="text" name="sid" class="form-textbox" @(Model == null ? "" : "readonly") value="@(Model == null ? "" : Model.sid)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">章节名称：</td>
+            <td class="value">
+                <input type="text" name="sectionname" class="form-textbox" value="@(Model == null ? "" : Model.sectionname)" />
+            </td>
+        </tr>
+    </table>
+}

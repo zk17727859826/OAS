@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD17392C-D43E-4736-896C-DA32D344A6FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OAS.Dal</RootNamespace>
+    <AssemblyName>OAS.Dal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bank\TblBankDal.cs" />
+    <Compile Include="Bank\TblPaperBankDal.cs" />
+    <Compile Include="Bank\TblSectionDal.cs" />
+    <Compile Include="Bank\TbPaperDal.cs" />
+    <Compile Include="BaseDal.cs" />
+    <Compile Include="Common\SysSerialsetDal.cs" />
+    <Compile Include="Common\SysSerialtbDal.cs" />
+    <Compile Include="Common\TblAreaInfoDal.cs" />
+    <Compile Include="Common\TblCheXingDal.cs" />
+    <Compile Include="Jiax\TblJiaolianDal.cs" />
+    <Compile Include="Jiax\TblJiaxDal.cs" />
+    <Compile Include="Jiax\TblXueyuanDal.cs" />
+    <Compile Include="Permission\SysMenuDal.cs" />
+    <Compile Include="Permission\SysMenuObjectDal.cs" />
+    <Compile Include="Permission\SysMenuPowerDal.cs" />
+    <Compile Include="Permission\SysPowerDal.cs" />
+    <Compile Include="Permission\SysRoleDal.cs" />
+    <Compile Include="Permission\SysRoleMenuPowerDal.cs" />
+    <Compile Include="Permission\SysRoleMenuPowerObjectDal.cs" />
+    <Compile Include="Permission\SysRolePowerDal.cs" />
+    <Compile Include="Permission\SysUserDal.cs" />
+    <Compile Include="Permission\SysUserRoleDal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Bank\TblErrorBankDal.cs" />
+    <Compile Include="Bank\TblPaperRuleDal.cs" />
+    <Compile Include="Study\TblTestRecordsDal.cs" />
+    <Compile Include="Study\TblTestRecordsDetailsDal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBFactoryEntity\DBFactoryEntity.csproj">
+      <Project>{0422cb72-88b2-46f7-a786-c93979e75d05}</Project>
+      <Name>DBFactoryEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBFactory\DBFactory.csproj">
+      <Project>{0182d8f0-bc79-4860-af65-edd0fa03e8a0}</Project>
+      <Name>DBFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OAS.Model\OAS.Model.csproj">
+      <Project>{eff08c15-81f6-4f81-bc61-85f30a19237e}</Project>
+      <Name>OAS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\tg.Helper\tg.Helper.csproj">
+      <Project>{40064076-ca86-43bb-a6db-3b5c9183a9da}</Project>
+      <Name>tg.Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

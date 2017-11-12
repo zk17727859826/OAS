@@ -1,0 +1,84 @@
+﻿@model OAS.Model.Jiax.tbl_jiaolian
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm(Model == null ? "Add" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <table class="ui-table">
+        <tr>
+            <td class="label">教练号：</td>
+            <td class="value">
+                @if (Model == null)
+                {
+                    <input type="text" name="jiaolh" class="form-textbox" value="" />
+                }
+                else
+                {
+                    <input type="text" class="form-textbox" disabled value="@Model.jiaolh" />
+                    <input type="hidden" name="jiaolh" value="@Model.jiaolh" />
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="label">驾校：</td>
+            <td class="value">
+                @Html.Action("Select", "Jiax", new { id="sltJiaxid", name = "jiaxid", value = Model == null ? "" : Model.jiaxid, classname = "easyui-combobox" })
+                <input type="hidden" id="jiaxname" name="jiaxname" value="@(Model == null ? "" : Model.jiaxname)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">姓名：</td>
+            <td class="value">
+                <input type="text" name="xingming" class="form-textbox" value="@(Model == null ? "" : Model.xingming)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">性别：</td>
+            <td class="value">
+                <select name="xingbie" class="easyui-combobox" data-options="panelHeight:'auto'">
+                    <option value="男" @(Model != null && Model.xingbie == "男" ? "selected" : "")>男</option>
+                    <option value="女" @(Model != null && Model.xingbie == "女" ? "selected" : "")>女</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">身份号码：</td>
+            <td class="value">
+                <input type="text" name="shenfhm" class="form-textbox" value="@(Model == null ? "" : Model.shenfhm)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">固定电话：</td>
+            <td class="value">
+                <input type="text" name="tel" class="form-textbox" value="@(Model == null ? "" : Model.tel)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">手机：</td>
+            <td class="value">
+                <input type="text" name="mobile" class="form-textbox" value="@(Model == null ? "" : Model.mobile)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">邮箱：</td>
+            <td class="value">
+                <input type="text" name="email" class="form-textbox" value="@(Model == null ? "" : Model.email)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">家庭地址：</td>
+            <td class="value">
+                <input type="text" name="address" class="form-textbox" value="@(Model == null ? "" : Model.address)" />
+            </td>
+        </tr>
+    </table>
+}

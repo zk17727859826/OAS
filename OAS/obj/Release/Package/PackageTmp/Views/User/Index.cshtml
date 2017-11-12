@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "用户管理";
+}
+<div data-options="region:'north',border:false" style="height:93px;">
+    <div class="queryframe">
+        <table>
+            <tr>
+                <td>用户编号：</td>
+                <td>
+                    <input type="text" name="userno" id="userno" class="textbox ui-box" />
+                </td>
+                <td>用户姓名：</td>
+                <td>
+                    <input type="text" name="username" id="username" class="textbox ui-box" />
+                </td>
+                <td>
+                    <a href="#" class="easyui-linkbutton" id="btnQuery" data-options="iconCls:'icon-search'" style="width:80px">Search</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="toolbar">@Html.Raw(ViewBag.ToolBar)</div>
+</div>
+<div data-options="region:'center',border:false">
+    <table id="list" class="scroll" cellpadding="0" cellspacing="0"></table>
+</div>
+<div id="editframe"></div>
+<div id="passwordframe"></div>
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Content/permission/user.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            initQuery();
+            initRefresh();
+            initShowAdd();
+            initShowUpdate();
+            initDelete();
+            initShowPassword();
+        });
+    </script>
+}

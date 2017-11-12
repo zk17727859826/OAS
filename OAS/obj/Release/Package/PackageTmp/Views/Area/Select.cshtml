@@ -1,0 +1,11 @@
+﻿@model IEnumerable<OAS.Model.Common.tbl_areainfo>
+<select id="@ViewBag.ID" name="@ViewBag.Name" class="@ViewBag.ClassName" data-options="panelHeight:'auto'">
+    <option value="">---</option>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <option value="@item.areano" @(item.areano == ViewBag.Value ? "selected" : "")>@item.areaname</option>
+        }
+    }
+</select>

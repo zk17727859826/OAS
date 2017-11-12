@@ -1,0 +1,73 @@
+﻿@model OAS.Model.Permission.sysmenu
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm(Model == null ? "Insert" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <table class="ui-table">
+        @if (Model == null)
+        {
+            <tr>
+                <td class="label">添加级别：</td>
+                <td class="value">
+                    <label><input type="radio" value="@ViewBag.ParentNo" name="parentno" @(ViewBag.Top == "Y" ? "disabled" : "") /> 同级</label>
+                    <label><input type="radio" value="@ViewBag.MenuNo" name="parentno" @(ViewBag.Top == "Y" ? "readonly checked" : "") /> 下级</label>
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr style="display:none;">
+                <td>
+                    <input type="hidden" name="parentno" value="@(Model == null ? "" : Model.parentno)" />
+                </td>
+            </tr>
+        }
+        <tr>
+            <td class="label">菜单编号：</td>
+            <td class="value">
+                <input type="text" name="menuno" class="form-textbox" @(Model == null ? "" : "readonly") value="@(Model == null ? "" : Model.menuno)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">菜单名称：</td>
+            <td class="value">
+                <input type="text" name="menuname" class="form-textbox" value="@(Model == null ? "" : Model.menuname)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">菜单样式：</td>
+            <td class="value">
+                <input type="text" name="menuclass" class="form-textbox" value="@(Model == null ? "" : Model.menuclass)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">菜单排序：</td>
+            <td class="value">
+                <input type="text" name="menusort" class="form-textbox" value="@(Model == null ? "" : (Model.menusort == null ? "" : Model.menusort.Value.ToString()))" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">是否有效：</td>
+            <td class="value">
+                <label><input type="radio" value="Y" name="isvalid" @(Model == null ? "" : (Model.isvalid == "Y" ? "checked" : "")) /> 是</label>
+                <label><input type="radio" value="N" name="isvalid" @(Model == null ? "" : (Model.isvalid == "N" ? "checked" : "")) /> 否</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">菜单地址：</td>
+            <td class="value">
+                <input type="text" name="menuurl" class="form-textbox" value="@(Model == null ? "" : Model.menuurl)" />
+            </td>
+        </tr>
+    </table>
+}

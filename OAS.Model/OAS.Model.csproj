@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EFF08C15-81F6-4F81-BC61-85F30A19237E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OAS.Model</RootNamespace>
+    <AssemblyName>OAS.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bank\tbl_bank.cs" />
+    <Compile Include="Bank\tbl_paper.cs" />
+    <Compile Include="Bank\tbl_paper_bank.cs" />
+    <Compile Include="Bank\tbl_section.cs" />
+    <Compile Include="Common\JsonTree.cs" />
+    <Compile Include="Common\sysserialset.cs" />
+    <Compile Include="Common\sysserialtb.cs" />
+    <Compile Include="Common\tbl_areainfo.cs" />
+    <Compile Include="Common\tbl_chexing.cs" />
+    <Compile Include="Jiax\tbl_jiaolian.cs" />
+    <Compile Include="Jiax\tbl_jiax.cs" />
+    <Compile Include="Jiax\tbl_xueyuan.cs" />
+    <Compile Include="Permission\sysmenu.cs" />
+    <Compile Include="Permission\sysmenu_object.cs" />
+    <Compile Include="Permission\sysmenu_power.cs" />
+    <Compile Include="Permission\syspower.cs" />
+    <Compile Include="Permission\sysrole.cs" />
+    <Compile Include="Permission\sysrole_menu.cs" />
+    <Compile Include="Permission\sysrole_menu_power.cs" />
+    <Compile Include="Permission\sysrole_menu_power_object.cs" />
+    <Compile Include="Permission\sysuser.cs" />
+    <Compile Include="Permission\sysuser_role.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Bank\tbl_error_bank.cs" />
+    <Compile Include="Bank\tbl_paper_rule.cs" />
+    <Compile Include="Study\tbl_test_records.cs" />
+    <Compile Include="Study\tbl_test_records_details.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

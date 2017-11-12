@@ -1,0 +1,99 @@
+﻿@model OAS.Model.Common.sysserialset
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm(Model == null ? "Add" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <table class="ui-table">
+        <tr>
+            <td class="label">编号代码：</td>
+            <td class="value">
+                <input type="text" name="serialno" class="form-textbox" @(Model == null ? "" : "readonly") value="@(Model == null ? "" : Model.serialno)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">编号名称：</td>
+            <td class="value">
+                <input type="text" name="serialname" class="form-textbox" value="@(Model == null ? "" : Model.serialname)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">前缀：</td>
+            <td class="value">
+                <input type="text" name="prefix" class="form-textbox" value="@(Model == null ? "" : Model.prefix)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">前缀连接符：</td>
+            <td class="value">
+                <input type="text" name="preflag" class="form-textbox" value="@(Model == null ? "" : Model.preflag)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">中缀：</td>
+            <td class="value">
+                <input type="text" name="midfix" class="form-textbox" value="@(Model == null ? "" : Model.midfix)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">中缀连接符：</td>
+            <td class="value">
+                <input type="text" name="midflag" class="form-textbox" value="@(Model == null ? "" : Model.midflag)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">后缀：</td>
+            <td class="value">
+                <input type="text" name="lastfix" class="form-textbox" value="@(Model == null ? "" : Model.lastfix)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">后缀连接符：</td>
+            <td class="value">
+                <input type="text" name="lastflag" class="form-textbox" value="@(Model == null ? "" : Model.lastflag)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">年份个数：</td>
+            <td class="value">
+                <select name="yearnum" class="easyui-combobox" data-options="panelHeight: 'auto'">
+                    <option value="2" @(Model == null ? "selected" : ((Model.yearnum != null && Model.yearnum.Value == 2) ? "selected" : ""))>2</option>
+                    <option value="4" @(Model == null ? "selected" : ((Model.yearnum != null && Model.yearnum.Value == 4) ? "selected" : ""))>4</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">月份个数：</td>
+            <td class="value">
+                <select name="monthnum" class="easyui-combobox" data-options="panelHeight: 'auto'">
+                    <option value="2" @(Model == null ? "selected" : ((Model.monthnum != null && Model.monthnum.Value == 2) ? "selected" : ""))>2</option>
+                    <option value="0" @(Model == null ? "selected" : ((Model.monthnum != null && Model.monthnum.Value == 0) ? "selected" : ""))>0</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">日期个数：</td>
+            <td class="value">
+                <select name="daynum" class="easyui-combobox" data-options="panelHeight: 'auto'">
+                    <option value="2" @(Model == null ? "selected" : ((Model.daynum != null && Model.daynum.Value == 2) ? "selected" : ""))>2</option>
+                    <option value="0" @(Model == null ? "selected" : ((Model.daynum != null && Model.daynum.Value == 0) ? "selected" : ""))>0</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">序列个数：</td>
+            <td class="value">
+                <input type="text" name="serialnum" class="form-textbox" value="@(Model == null ? "" : Model.serialnum.Value.ToString())" />
+            </td>
+        </tr>
+    </table>
+}

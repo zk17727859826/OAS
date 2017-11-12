@@ -1,0 +1,36 @@
+﻿@model OAS.Model.Common.tbl_areainfo
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm(Model == null ? "Add" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <table class="ui-table">
+        <tr>
+            <td class="label">区域代码：</td>
+            <td class="value">
+                <input type="text" name="areano" class="form-textbox" @(Model == null ? "" : "readonly") value="@(Model == null ? "" : Model.areano)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">区域名称：</td>
+            <td class="value">
+                <input type="text" name="areaname" class="form-textbox" value="@(Model == null ? "" : Model.areaname)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">区域排序：</td>
+            <td class="value">
+                <input type="text" name="areaorder" class="form-textbox" value="@(Model == null ? "" : Model.areaorder.ToString())" />
+            </td>
+        </tr>
+    </table>
+}

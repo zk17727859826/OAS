@@ -1,0 +1,4 @@
+E:\系统源码\VS2013\OAS\OAS.Model\bin\Debug\OAS.Model.dll
+E:\系统源码\VS2013\OAS\OAS.Model\bin\Debug\OAS.Model.pdb
+E:\系统源码\VS2013\OAS\OAS.Model\obj\Debug\OAS.Model.dll
+E:\系统源码\VS2013\OAS\OAS.Model\obj\Debug\OAS.Model.pdb

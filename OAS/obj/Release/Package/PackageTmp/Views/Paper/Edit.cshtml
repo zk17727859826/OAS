@@ -1,0 +1,33 @@
+﻿@model OAS.Model.Bank.tbl_paper
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm(Model == null ? "Add" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <table class="ui-table">
+        @if (Model != null) 
+        { 
+        <tr>
+            <td class="label">试卷编号：</td>
+            <td class="value">
+                <input type="text" name="paperid" class="form-textbox" @(Model == null ? "" : "readonly") value="@(Model == null ? "" : Model.paperid.Value.ToString())" />
+            </td>
+        </tr>
+        }
+        <tr>
+            <td class="label">试卷名称：</td>
+            <td class="value">
+                <input type="text" name="papername" class="form-textbox" value="@(Model == null ? "" : Model.papername)" />
+            </td>
+        </tr>
+    </table>
+}

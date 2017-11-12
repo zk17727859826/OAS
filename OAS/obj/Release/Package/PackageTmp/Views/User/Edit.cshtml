@@ -1,0 +1,56 @@
+﻿@model OAS.Model.Permission.sysuser
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm(Model == null ? "Add" : "Update",
+    new { },
+    new AjaxOptions()
+    {
+        OnBegin = "showLayout",
+        OnComplete = "hideLayout",
+        OnSuccess = "showUpdateResult"
+    },
+        new { id = "editform" }))
+{
+    <table class="ui-table">
+        <tr>
+            <td class="label">用户编号：</td>
+            <td class="value">
+                <input type="text" name="userno" class="easyui-textbo" @(Model == null ? "" : "readonly") value="@(Model == null ? "" : Model.userno)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">用户姓名：</td>
+            <td class="value">
+                <input type="text" name="username" class="easyui-textbo" value="@(Model == null ? "" : Model.username)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">用户性别：</td>
+            <td class="value">
+                <label><input type="radio" value="男" name="xingbie" @(Model == null ? "" : (Model.xingbie == "男" ? "checked" : "")) /> 男</label>
+                <label><input type="radio" value="女" name="xingbie" @(Model == null ? "" : (Model.xingbie == "女" ? "checked" : "")) /> 女</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">身份号码：</td>
+            <td class="value">
+                <input type="text" name="shenfhm" class="easyui-textbo" value="@(Model == null ? "" : Model.shenfhm)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">手机号码：</td>
+            <td class="value">
+                <input type="text" name="shoujhm" class="easyui-textbo" value="@(Model == null ? "" : Model.shoujhm)" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">是否有效：</td>
+            <td class="value">
+                <label><input type="radio" value="Y" name="isvalid" @(Model == null ? "" : (Model.isvalid == "Y" ? "checked" : "")) /> 有</label>
+                <label><input type="radio" value="N" name="isvalid" @(Model == null ? "" : ((string.IsNullOrEmpty(Model.isvalid) || Model.isvalid == "N") ? "checked" : "")) /> 无</label>
+            </td>
+        </tr>
+    </table>
+}

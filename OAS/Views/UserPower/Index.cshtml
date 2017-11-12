@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "用户权限";
+    @section styles{
+        <style>
+            .objectitem {
+                width: 70px;
+                border: dashed 1px #aaa;
+                height: 25px;
+                line-height: 25px;
+                float: left;
+                margin: 3px;
+                position: relative;
+            }
+
+                .objectitem label {
+                    position: relative;
+                }
+
+                    .objectitem label input {
+                        position: relative;
+                        top: 2px;
+                    }
+        </style>
+    }
+}
+<div data-options="region:'west',split:true,border:false,collapsible:false" style="width:600px;">
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'west',split:true,collapsible:false,title:'用户信息'" style="width:300px;">
+            <div style="border-bottom: solid 1px #aaa;">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="text" id="keywords" style="width:145px" placeholder="登陆名" class="ui-box" />
+                        </td>
+                        <td>
+                            <a href="#" class="easyui-linkbutton" id="btnQuery" data-options="iconCls:'icon-search'">查询</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <table id="userinfo"></table>
+        </div>
+        <div data-options="region:'center',title:'角色信息',tools: [{
+                          iconCls:'icon-save',
+                          handler:function(){
+                            saveUserRoels();
+                          }
+                        }] ">
+            <table id="roleinfo" cellpadding="0" cellspacing="0"></table>
+        </div>
+    </div>
+</div>
+<div data-options="region:'center',border:false">
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'west',split:true,collapsible:false,title:'模块信息'" style="width:300px; padding:3px;">
+            <ul id="treeModule"></ul>
+        </div>
+        <div data-options="region:'center',border:false">
+            <div class="easyui-layout" data-options="fit:true">
+                <div data-options="region:'north',split:true,collapsible:false,title:'动作信息'" style="height:250px;">
+                    <table id="tblModulePower"></table>
+                </div>
+                <div data-options="region:'center',collapsible:false,title:'对象信息'">
+                    <div id="flRoleObjects"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="@Url.Content("~/Content/permission/userpower.js")"></script>
+    <script>
+        $(document).ready(function () {
+            initQueryUser();
+            queryRoles();
+        });
+    </script>
+}
